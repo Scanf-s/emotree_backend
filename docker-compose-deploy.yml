@@ -1,0 +1,22 @@
+services:
+  api:
+    env_file:
+      - .env
+    build:
+      context: ./api
+      args:
+        - DEV=false
+    volumes:
+      - ./api/ett_backend:/ett_backend
+      - ./pyproject.toml:/ett_backend/pyproject.toml
+      - ./mypy.ini:/ett_backend/mypy.ini
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=config.settings
+      - WERKZEUG_DEBUG_PIN=off
+      - TZ="Asia/Seoul"
+    command: >
+      sh -c "mkdir -p /ett_backend/logs &&
+             python manage.py migrate &&
+             gunicorn --bind 0.0.0.0:8000 config.asgi:application --workers 3 --worker-class uvicorn.workers.UvicornWorker --timeout 120 --log-level debug --access-logfile /ett_backend/logs/access.log --error-logfile /ett_backend/logs/error.log"
