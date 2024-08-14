@@ -22,8 +22,8 @@
   </tr>
   <tr>
     <td><a href="https://github.com/yoyobar">@yoyobar</a></td>
-    <td><a href="https://github.com/devpma">@devpma</a></td>
     <td><a href="https://github.com/ungpyolee">@ungpyolee</a></td>
+    <td><a href="https://github.com/devpma">@devpma</a></td>
     <td><a href="https://github.com/Scanf-s">@Scanf-s</a></td>
     <td><a href="https://github.com/ChoiSeongRak">@ChoiSeongRak</a></td>
   </tr>
@@ -36,6 +36,51 @@
   </tr>
 </table>
 
+## 주요 페이지
+
+| 랜딩 페이지                                 | 
+|--------------------------------------------|
+| <img src="https://github.com/OZ-Coding-School/oz_03_main-003-FE/blob/main/docs/ReadMe_Landing.png?raw=true"/> | 
+|서비스 소개와 로그인이 가능합니다              |
+
+| 감정나무 숲 페이지                                 | 
+|--------------------------------------------|
+| <img src="https://github.com/OZ-Coding-School/oz_03_main-003-FE/blob/main/docs/ReadMe_Home.png?raw=true"/> | 
+|나무를 심을 수 있으며, 나무 관리와 성장 정보를 확인합니다              |
+
+|AI 대화분석 페이지                                  | 
+|--------------------------------------------|
+| <img src="https://github.com/OZ-Coding-School/oz_03_main-003-FE/blob/main/docs/ReadMe_Chat.png?raw=true"/> | 
+|채팅방을 만들고 대화를 입력하면 AI가 대화를 요약하고 감정 키워드를 추출합니다  |
+
+|내 정보 페이지                                   | 
+|--------------------------------------------|
+| <img src="https://github.com/OZ-Coding-School/oz_03_main-003-FE/blob/main/docs/ReadMe_Mypage.png?raw=true"/> | 
+|유저의 정보를 볼 수 있으며, 프로필 이미지와 이름을 변경할 수 있습니다. |
+
+## 페이지별 주요 기능
+
+### 공통 기능
+- 유저 Google 로그인 토큰으로 관리
+
+### 감정나무 숲 페이지
+- 3D CSS로 구현된 그리드에 나무 CRUD 기능.
+- 감정 점수가 일정 수치에 도달하면 나무가 성장.
+- 유저의 레벨이 오르면 나무를 심을 수 있는 바닥이 더 넓어진다.
+
+### 채팅 페이지
+- 채팅방 CRUD 기능.
+- OpenAI(Gemini AI)를 사용한 대화 내용 감정 분석.
+- 대화 내용 요약 및 감정 키워드 추출 기능.
+
+### 내정보 페이지
+- 유저의 이름 변경
+- 획득한 감정수치가 일정 수치를 넘으면, 뱃지를 획득하여 프로필 이미지로 변경 가능
+
+
+## 데모 영상
+
+https://github.com/user-attachments/assets/e57bf6a3-1357-43bc-a980-861a1b1afc68
 
 ## 사용 기술
 
@@ -122,14 +167,57 @@
 
 ## 백엔드 기능 흐름
 
-### 1. 로그인 ~ 숲 생성 과정
+| 로그인 ~ 숲 생성 과정                       |
+|--------------------------------------------|
+| <img src="https://github.com/user-attachments/assets/bab96f26-a640-4a3e-bb41-6fb5df58f15d" width=600px height=500px/> |
 
-![image](https://github.com/user-attachments/assets/bab96f26-a640-4a3e-bb41-6fb5df58f15d)
+| 트리 및 채팅방 생성 과정                      |
+|--------------------------------------------|
+| <img src="https://github.com/user-attachments/assets/6c32e720-fb98-4673-9e52-13239d8c6017" width=600px height=500px/> |
 
-### 2. 트리 및 채팅방 생성 과정
+| Dialog 송수신 과정                      |
+|--------------------------------------------|
+| <img src="https://github.com/user-attachments/assets/fba1454e-dbe3-47b6-a3c0-5f15dc0d3f9f" width=600px height=500px/> |
 
-![image](https://github.com/user-attachments/assets/6c32e720-fb98-4673-9e52-13239d8c6017)
+---
 
-### 3. Dialog 송수신 과정
+## 트러블 슈팅
 
-![image](https://github.com/user-attachments/assets/fba1454e-dbe3-47b6-a3c0-5f15dc0d3f9f)
+### [Frontend, Backend]
+- **문제:** 초기 로그인 토큰 관리 이슈.
+  - **해결:** 클라이언트 측에서 oAuth로 로그인 요청을 보내는게 기본적인 설계방식임을 확인, React OAuth 라이브러리 설치 후 클라이언트 단 처리 및 검증 커스텀 훅 사용.
+
+- **문제:** 감정 분석 속도 저하.
+  - **해결:** OpenAI API 호출 최적화 및 캐싱 전략 도입.
+  - **해결:** 과도한 Prompt 지시 내용 최적화, Few-shot example 최적화
+
+### [Frontend]
+- **문제:** 음악 무한 재생 버그
+  - **해결:** 기존 코드는 new Audio 객체를 컴포넌트 내에서 호출했으나, 코드를 변경하여 컴포넌트 바깥으로 객체를 빼둠, 컴포넌트 재렌더링이 발생할 때 마다 추가적인 객체 생성은 없을것으로 판단되어 해결
+
+- **문제:** 채팅방 인풋의 크기로 인해 가독성 저하
+  - **해결:** 채팅방 글자의 `length`를 계산하여 추가적인 스타일 변경, 기존에는 `overflow-scroll`이 없어서 버튼을 외부로 빼내고 스타일을 재조정
+ 
+- **문제:** 유저 메세지에 엔터가 없을경우, 창을 초과하여 늘어나는 버그
+  - **해결:** `overflow-x-hidden`을 주어 스타일적인 문제를 해결하고, `break-words`를 사용하여 화면을 초과하는 글자는 개행하도록 처리
+
+### [Backend]
+- **문제:** API 사용 시 발생한 에러, 논리적인 결점
+  - **해결:** 현재 생각하고 있는 Flow의 논리적인 흐름을 다시 구성하고 해당 논리에 맞도록 API 수정
+
+- **문제:** EC2 Free tier 용량 문제
+  - **해결:** docker-compose로 백엔드 어플리케이션 빌드 시 생성되는 필요 없는 파일 제거로 용량 최적화
+ 
+- **문제:** Prompting을 사용하여 과도한 무관심 수치 조정의 한계
+  - **해결:** Gemini가 결과로 전달하는 감정 분석 수치에 내부 코드에서 특정 값을 연산하여 전달받는 무관심 수치 조정
+
+---
+ 
+## 프로젝트 후기
+
+API 개발 시 테스트 주도 개발을 수행하려고 했으나, 아직 익숙하지 않은 개념이기도 하고 API 개발에만 너무 몰두하여 테스트 코드 개발에 소홀했던 것 같다.
+추후 진행하는 프로젝트에서는 반드시 테스트 주도 개발 개념을 더 숙지하여 실제 API 배포 시 발생하게 되는 오류가 적어질 수 있도록 노력할 것이다.
+또한, AI를 이번에 처음 프로젝트에 입히는 것이다 보니 자연스레 AI쪽에 관심을 갖게 되었다. 파이썬을 사용할 수 있다는 강점을 살려서 AI 분야를 공부하기로 결심하였다.
+백엔드 역량과 AI 활용 역량을 모두 갖춘 인재가 되어 사회에서 바라보는 나의 가치가 올라갔으면 하는 바람이 있다.
+
+ 
