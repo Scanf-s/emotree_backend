@@ -1,7 +1,7 @@
 ## Emotion Tree Talk 프로젝트 백엔드 Readme 전용 레포지토리🎄
 
 ### 이미지 클릭 시 웹 사이트로 이동합니다.
-[![Emotion Tree Talk](https://github.com/user-attachments/assets/00650986-3e36-402c-aa90-21bdc285bf68)](https://emotree.yoyobar.xyz)
+[![image](https://github.com/user-attachments/assets/4f659843-4ce1-4adc-8a8e-e9671f3850ad)](https://emotree.yoyobar.xyz)
 
 ## 팀원 소개
 
@@ -14,11 +14,11 @@
     <th><strong>최성락</strong></th>
   </tr>
   <tr>
-    <td><img src="https://github.com/user-attachments/assets/118cdd12-db99-40c4-b2f4-cf70cded4007" alt="김민수" width="150" height="150"></td>
-    <td><img src="https://github.com/user-attachments/assets/7a850f92-4077-4073-987e-220d70dacc9a" alt="이웅표" width="150" height="150"></td>
-    <td><img src="https://github.com/user-attachments/assets/5063b7ae-cce9-44de-a434-dda0a000964e" alt="박민아" width="150" height="150"></td>
-    <td><img src="https://github.com/user-attachments/assets/0e5f674a-7eb7-4239-9d38-de28fe0f50ad" alt="양의종" width="150" height="150"></td>
-    <td><img src="https://github.com/user-attachments/assets/b0c24d77-4673-4fdc-91bd-dcd302a5a466" alt="최성락" width="150" height="150"></td>
+    <td><img src="https://github.com/user-attachments/assets/3fb6ba4c-f84e-44ab-9518-98c7a208462b" alt="김민수" width="150" height="150"></td>
+    <td><img src="https://github.com/user-attachments/assets/f58b6404-5d10-4276-b729-50143888b5db" alt="이웅표" width="150" height="150"></td>
+    <td><img src="https://github.com/user-attachments/assets/a89c1690-cebb-4b8c-81e5-1c74f3cbe995" alt="박민아" width="150" height="150"></td>
+    <td><img src="https://github.com/user-attachments/assets/346ca457-7cc7-45c1-aca1-1bee469b35cd" alt="양의종" width="150" height="150"></td>
+    <td><img src="https://github.com/user-attachments/assets/c9fd211a-4678-4d21-bdad-81f5f7b6e279" alt="최성락" width="150" height="150"></td>
   </tr>
   <tr>
     <td><a href="https://github.com/yoyobar">@yoyobar</a></td>
