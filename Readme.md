@@ -114,6 +114,10 @@ https://github.com/user-attachments/assets/3edf19d6-3606-428e-b5e8-b596f9cadaa2
 
 ![image](https://github.com/user-attachments/assets/5adf7e75-2873-4d60-90e9-f7dd547cd7f5)
 
+### 3. ERD
+
+![image](https://github.com/user-attachments/assets/fa115b44-7f49-4622-8349-b5fc62eb67f7)
+
 ---
 
 ## Prompt Engineering
